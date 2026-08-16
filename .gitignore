@@ -1,0 +1,21 @@
+# Temporary files
+*.tmp
+*.log
+
+# Editor files
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Runtime files
+storage/
+cache/
+
+# Build artifacts
+target/
+
+# Local config overrides
+*.local

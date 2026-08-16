@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+BASE_DIR="$(cd "$(dirname "$SCRIPT_PATH")/.." && pwd)"
+
+source "$BASE_DIR/config/note.conf"
+source "$BASE_DIR/lib/preview.sh"
+source "$BASE_DIR/lib/open.sh"
+source "$BASE_DIR/lib/editor.sh"
+source "$BASE_DIR/lib/delete.sh"
+source "$BASE_DIR/lib/search.sh"
+source "$BASE_DIR/lib/stats.sh"
+source "$BASE_DIR/lib/glow.sh"
+source "$BASE_DIR/lib/help.sh"
+source "$BASE_DIR/lib/rename.sh"
+
+case "$1" in
+    --help|-h)
+        note_help
+        ;;
+    open)
+        note_open
+        ;;
+    delete)
+        note_delete
+        ;;
+    search)
+        note_search
+        ;;
+    statistics)
+        note_stats
+        ;;
+    glow)
+        note_glow
+        ;;
+    rename)
+        note_rename
+        ;;
+    *)
+        if [ "$2" = "-h" ]; then
+            note_edit "$1" "helix"
+        else
+            note_edit "$1"
+        fi
+        ;;
+esac
