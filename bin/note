@@ -12,6 +12,8 @@ source "$BASE_DIR/lib/search.sh"
 source "$BASE_DIR/lib/stats.sh"
 source "$BASE_DIR/lib/glow.sh"
 source "$BASE_DIR/lib/help.sh"
+source "$BASE_DIR/lib/index.sh"
+source "$BASE_DIR/lib/links.sh"
 source "$BASE_DIR/lib/rename.sh"
 
 case "$1" in
@@ -35,6 +37,12 @@ case "$1" in
         ;;
     rename)
         note_rename
+        ;;
+    index)
+        note_index
+        ;;
+    links)
+        note_links
         ;;
     *)
         if [ "$2" = "-h" ]; then

@@ -11,6 +11,7 @@ Commands:
   search            Search inside notes
   statistics        Show note statistics
   glow              Open glow note viewer
+  rename            Rename note files with confirmation
 
 File usage:
   note FILE         Open or create file with neovim
@@ -24,5 +25,6 @@ Examples:
   note search
   note statistics
   note glow
+  note rename
 HELP
 }
