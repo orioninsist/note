@@ -1,0 +1,29 @@
+_note_completion() {
+    local cur
+    local notes_dir="/mnt/local/resources/notes"
+
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    COMPREPLY=()
+
+    while IFS= read -r candidate; do
+        [[ "$candidate" == "$cur"* ]] && COMPREPLY+=("$candidate")
+    done < <(
+        find "$notes_dir" -mindepth 1 -printf '%P\n' 2>/dev/null
+    )
+
+    if [[ -n "$cur" ]]; then
+        local found=0
+        local candidate
+
+        for candidate in "${COMPREPLY[@]}"; do
+            if [[ "$candidate" == "$cur" ]]; then
+                found=1
+                break
+            fi
+        done
+
+        (( found )) || COMPREPLY+=("$cur")
+    fi
+}
+
+complete -F _note_completion note
