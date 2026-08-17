@@ -214,6 +214,46 @@ The project focuses on:
 No database is required.
 Notes remain plain files that can be edited anywhere.
 
+
+### Feature addition
+
+Add under `## Features`:
+
+```md
+- Create or open files with any extension
+- Bash/Flyline-compatible file completion
+```
+
+### Usage addition
+
+Replace the current `### Create or open a note` section with:
+
+````md
+### Create or open a file
+
+Open an existing file or create a new one with Neovim:
+
+```bash
+note example.md
+note document.typst
+note script.py
+note config.toml
+````
+
+The filename and extension are preserved exactly. If the file does not exist, `note` creates it automatically before opening it.
+
+Open or create the file with Helix:
+
+```bash
+note document.typst -h
+```
+
+File completion suggests existing files while still allowing new filenames to be created.
+
+
+
+
+
 ## License
 
 MIT License
